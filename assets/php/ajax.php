@@ -1,6 +1,17 @@
 <?php
 require_once 'functions.php';
 
+//ajax to retrieve data for unblocking users
+if(isset($_GET['unblock'])){
+    $user_id = $_POST['user_id']; 
+      if(unblockUser($user_id)){
+          $response['status']=true;
+      }else{
+          $response['status']=false;
+      }
+  
+      echo json_encode($response);
+  }
 // ajax to retrieve data if user have viewed notifications
 if(isset($_GET['notread'])){
    
