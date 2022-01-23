@@ -558,7 +558,7 @@ function createUser($data){
  $email = mysqli_real_escape_string($db,$data['email']);
  $username = mysqli_real_escape_string($db,$data['username']);
  $password = mysqli_real_escape_string($db,$data['password']);
- $password = md5($password);
+ $password = md5($password); // creates a md5 hash value to protect the password of users in the database
 
  $query = "INSERT INTO users(first_name,last_name,gender,email,username,password) ";
  $query.="VALUES ('$first_name','$last_name',$gender,'$email','$username','$password')"; 
